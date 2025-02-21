@@ -6,3 +6,25 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+.train-info {
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.train-delay-info {
+    font-weight: bold;
+}
+
+.train-canceled h3 {
+    font-size: 20px;
+    color: #dc3545;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+body{
+    font-family: 'Share Tech Mono', monospace;
+}

@@ -6,7 +6,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
 
@@ -15,26 +20,46 @@
 
     </header>
     <main>
-        @foreach ($trains as $train)
-            @if (!$train['canceled'])
-                <div>{{ $train['company'] }}</div>
-                <div>{{ $train['train_code'] }}</div>
-                <div>{{ $train['leaving_station'] }}</div>
-                <div>{{ $train['ariving_station'] }}</div>
-                <div>{{ $train['leaving_hour'] }}</div>
-                <div>{{ $train['arriving_hour'] }}</div>
-                @if ($train['delay'])
-                    <div>{{ $train['delay_time'] }}</div>
+        <div class="container">
+            @foreach ($trains as $train)
+                @if (!$train['canceled_train'])
+                    <div class="train-info card shadow-lg mb-4 border-light">
+                        <div class="card-body">
+                            <h5 class="card-title d-flex justify-content-between align-items-center">
+                                <span>{{ $train['company'] }} - {{ $train['train_code'] }}</span>
+                                <span class="badge bg-success">In servizio</span>
+                            </h5>
+                            <p class="card-text">
+                                <strong>Stazione di partenza:</strong> {{ $train['leaving_station'] }}<br>
+                                <strong>Stazione di arrivo:</strong> {{ $train['arriving_station'] }}<br>
+                                <strong>Partenza:</strong> {{ $train['leaving_hour'] }}<br>
+                                <strong>Arrivo:</strong> {{ $train['arriving_hour'] }}
+                            </p>
+                            @if ($train['delay'])
+                                <div class="train-delay-info alert alert-warning d-flex align-items-center">
+                                    <i class="fas fa-clock me-2"></i> Ritardo: {{ $train['delay_time'] }} minuti
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                @else
+                    <div class="train-info card shadow-lg mb-4 border-danger canceled">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ $train['company'] }} - {{ $train['train_code'] }}</h5>
+                            <p class="card-text">
+                                <strong>Stazione di partenza:</strong> {{ $train['leaving_station'] }}<br>
+                                <strong>Stazione di arrivo:</strong> {{ $train['arriving_station'] }}
+                            </p>
+                            <div class="train-canceled text-danger">
+                                <h3 class="display-6">🚫 TRENO CANCELLATO 🚫</h3>
+                            </div>
+                        </div>
+                    </div>
                 @endif
-            @else
-                <div>{{ $train['company'] }}</div>
-                <div>{{ $train['train_code'] }}</div>
-                <div>{{ $train['leaving_station'] }}</div>
-                <div>{{ $train['ariving_station'] }}</div>
-                <H3>CANCELED TRAIN</H3>
-            @endif
-        @endforeach
+            @endforeach
 
+
+        </div>
     </main>
     <footer>
 
