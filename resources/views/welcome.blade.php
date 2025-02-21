@@ -20,6 +20,12 @@
 
     </header>
     <main>
+        <div class="container-fluid bg-danger text-white p-3 mb-4">
+            <div class="d-flex justify-content-center align-items-center">
+                <h3 class="m-0">INFO TRENI STAZIONE MILANO CENTRALE</h3>
+            </div>
+        </div>
+
         <div class="container">
             @foreach ($trains as $train)
                 @if (!$train['canceled_train'])
