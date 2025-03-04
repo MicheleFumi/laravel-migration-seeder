@@ -39,7 +39,8 @@
                                 <strong>Stazione di partenza:</strong> {{ $train['leaving_station'] }}<br>
                                 <strong>Stazione di arrivo:</strong> {{ $train['arriving_station'] }}<br>
                                 <strong>Partenza:</strong> {{ $train['leaving_hour'] }}<br>
-                                <strong>Arrivo:</strong> {{ $train['arriving_hour'] }}
+                                <strong>Arrivo:</strong> {{ $train['arriving_hour'] }}<br>
+                                <strong>Numero di carrozze:</strong> {{ $train['coaches_number'] }}
                             </p>
                             @if ($train['delay'])
                                 <div class="train-delay-info alert alert-warning d-flex align-items-center">
