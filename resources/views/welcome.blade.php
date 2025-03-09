@@ -55,7 +55,9 @@
                             <h5 class="card-title">{{ $train['company'] }} - {{ $train['train_code'] }}</h5>
                             <p class="card-text">
                                 <strong>Stazione di partenza:</strong> {{ $train['leaving_station'] }}<br>
-                                <strong>Stazione di arrivo:</strong> {{ $train['arriving_station'] }}
+                                <strong>Stazione di arrivo:</strong> {{ $train['arriving_station'] }}<br>
+                                <strong>Partenza:</strong> {{ $train['leaving_hour'] }}<br>
+                                <strong>Arrivo:</strong> {{ $train['arriving_hour'] }}<br>
                             </p>
                             <div class="train-canceled text-danger">
                                 <h3 class="display-6">🚫 TRENO CANCELLATO 🚫</h3>
